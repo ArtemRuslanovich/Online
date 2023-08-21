@@ -24,7 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.first_page),
     path('thanks/', views.thanks_page, name='thanks_page'),
-    path('about/', views.Page_about),
+    path('about/', views.page_about, name='о нас'),
+    path('TAXFREE/', views.tax_free, name='tax free'),
+    path('map/', views.map, name='контакты')
 
 ]
 if settings.DEBUG:

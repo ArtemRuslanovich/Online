@@ -15,19 +15,29 @@
   <body>
 	<nav class="navbar navbar-light bg-white text-dark container">
 	  <a class="navbar-brand logo-top" href="/">
-	    <img src="{% static 'img/Logo.jpg' %}" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy">
-	    YT. MONEY CREW
+	    <img src="{% static 'img/img.png' %}" width="80" height="60" class="d-inline-block align-top" alt="" loading="lazy">
 	  </a>
 	  <div class="contact-top">
-                <a class="instagram" href="https://instagram.com/yt.money.crew?utm_medium=copy_link"></a>
-                <a class="telegram-number" href="https://t.me/"></a>
+              <a class="phone-number text-dark" href="/map">
+              	<h5>Где мы находимся?</h5></a>
+		  	  <a class="phone-number text-dark" href="/TAXFREE">
+              	<h5>Оформление Tax Free</h5></a>
               <a class="phone-number text-dark" href="/about">
               	<h5>О нас</h5></a>
+
       </div>
 	</nav>
 	<hr>
 
 {% block about %}
+
+{% endblock %}
+
+{% block map %}
+
+{% endblock %}
+
+{% block taxfree %}
 
 {% endblock %}
 
@@ -44,8 +54,7 @@
   		<div class="container">
   			<nav class="navbar navbar-light bg-white text-dark container">
 			    <a class="navbar-brand logo-top" href="/">
-			    	<img src="{% static 'img/Logo.jpg' %}" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy">
-			    	YT. MONEY CREW
+			    	<img src="{% static 'img/img.png' %}" width="120" height="100" class="d-inline-block align-top" alt="" loading="lazy">
 			    </a>
 	  			<div class="contact-top">
 	                <a class="instagram" href="https://instagram.com/yt.money.crew?utm_medium=copy_link"></a>

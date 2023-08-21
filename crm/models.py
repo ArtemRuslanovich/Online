@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class StatusCrm(models.Model):
     status_name = models.CharField(max_length=200, verbose_name='Название статуса')
@@ -14,7 +15,7 @@ class StatusCrm(models.Model):
 
 class Order(models.Model):
     order_dt = models.DateTimeField(auto_now=True)
-    order_name = models.CharField(max_length=200, verbose_name= 'Имя')
+    order_name = models.CharField(max_length=200, verbose_name='Имя')
     order_phone = models.CharField(max_length=200, verbose_name='Телефон')
     order_status = models.ForeignKey(StatusCrm, on_delete=models.PROTECT, null=True, blank=True, verbose_name='Статус')
 
@@ -37,5 +38,3 @@ class ComentCrm(models.Model):
     class Meta:
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
-
-

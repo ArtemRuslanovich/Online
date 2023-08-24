@@ -41,28 +41,27 @@ Cертифицированный сервисный центр, выполня�
         </section>
 
         <section class="form-section">
-            <h2>Оставьте заявку</h2>
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="fullname"><i class="fas fa-user"></i> ФИО:</label>
-                    <input type="text" id="fullname" name="fullname" required>
-                </div>
+    <h2>Оставьте заявку</h2>
+    <form method="post" action= "my_view/" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="fullname"><i class="fas fa-user"></i> ФИО:</label>
+            <input type="text" id="fullname" name="fullname" required>
+        </div>
 
-                <div class="form-group">
-                    <label for="phone"><i class="fas fa-phone"></i> Номер телефона:</label>
-                    <input type="text" id="phone" name="phone" required>
-                </div>
+        <div class="form-group">
+            <label for="phone"><i class="fas fa-phone"></i> Номер телефона:</label>
+            <input type="text" id="phone" name="phone" required>
+        </div>
 
-                <div class="form-group">
-                    <label for="description"><i class="fas fa-comment"></i> Краткое описание:</label>
-                    <textarea id="description" name="description" rows="5" required></textarea>
-                </div>
+        <div class="form-group">
+            <label for="description"><i class="fas fa-comment"></i> Краткое описание:</label>
+            <textarea id="description" name="description" rows="5" required></textarea>
+        </div>
 
-
-                <button type="submit">Отправить</button>
-            </form>
-        </section>
+        <button type="submit">Отправить</button>
+    </form>
+</section>
     </main>
 
     <footer>

@@ -22,8 +22,9 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("my_view/", views.my_view),
     path('', views.first_page),
-    path('thanks/', views.thanks_page, name='thanks_page'),
+    path('thanks', views.thanks, name='thanks'),
     path('about/', views.page_about, name='о нас'),
     path('TAXFREE/', views.tax_free, name='tax free'),
     path('map/', views.map, name='контакты')

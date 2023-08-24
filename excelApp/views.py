@@ -1,35 +1,44 @@
-from django.shortcuts import render
-from openpyxl import load_workbook
-
-from .forms import Form
-from .utils import save_data_to_excel
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+import openpyxl
 
 
-def view(request):
+def my_view(request):
     if request.method == 'POST':
-        form = Form(request.POST)
-        if form.is_valid():
-            fullname = form.cleaned_data['fullname']
-            phone = form.cleaned_data['phone']
-            description = form.cleaned_data['description']
+        fullname = request.POST.get('fullname')
+        phone = request.POST.get('phone')
+        description = request.POST.get('description')
 
-            data = {
-                "ФИО": fullname,
-                "Номер телефона": phone,
-                "Краткое описание": description,
-            }
+        data = {
+            "ФИО": fullname,
+            "Номер телефона": phone,
+            "Краткое описание": description
+        }
 
-            # Сохраняем данные в Excel-файл
-            file_path = 'media/test.xlsx'
-            wb = load_workbook(filename=file_path)
-            ws = wb.active()
+        excel_file = r"C:\Users\USER\PycharmProjects\YMC\media\test.xlsx"
+
+        try:
+            workbook = openpyxl.load_workbook(excel_file)
+            sheet = workbook.active
+
+            for key, value in data.items():
+                sheet.append([key, value])
+
+            workbook.save(excel_file)
+
+            return redirect('thanks')
+        except Exception as e:
+            return HttpResponse(f"ебнулось: {e}")
+
+    return render(request, 'thanks.html')
 
 
-            return render(request, 'thanks.html')
-    else:
-        form = Form()
+def thanks(request):
+    fullname = request.GET.get('fullname')
+    phone = request.GET.get('phone')
+    description = request.GET.get('description')
 
-    return render(request, 'thanks.html', {'form': form})
+    return render(request, 'thanks.html', {'fullname': fullname, 'phone': phone, 'description': description})
 
 
 def first_page(request):
@@ -47,6 +56,3 @@ def tax_free(request):
 def map(request):
     return render(request, './map.html')
 
-
-def thanks_page(request):
-    return render(request, './thanks.html')
